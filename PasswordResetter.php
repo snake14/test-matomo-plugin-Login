@@ -304,6 +304,8 @@ class PasswordResetter
      * We can't get the identifier back from a hash but we can tell if a hash is the hash for
      * a specific identifier by computing a hash for the identifier and comparing with the
      * first hash.
+     * 
+     * NOTE: This method doesn't use a secure enough algorithm for passwords.
      *
      * @param string $hashIdentifier A unique string that identifies the hash in some way, can,
      *                               for example, be user information or can contain an expiration date,
@@ -339,7 +341,7 @@ class PasswordResetter
     }
 
     /**
-     * Hashes a string.
+     * Hashes a string. NOTE: This method doesn't use a secure enough algorithm for passwords.
      *
      * Derived classes can override this to provide a different hashing implementation.
      *
