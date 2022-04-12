@@ -61,6 +61,8 @@ use Piwik\Url;
  */
 class PasswordResetter
 {
+	const SECURE_HASH_ALGO = 'sha512';
+
     /**
      * @var Password
      */
@@ -346,7 +348,7 @@ class PasswordResetter
      */
     protected function hashData($data)
     {
-        return Common::hash($data);
+        return hash(self::SECURE_HASH_ALGO, $data);
     }
 
     /**
